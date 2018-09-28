@@ -1,1 +1,38 @@
 28 de septiembre
+
+Quiz 2
+-- PARTE 1
+--1. Create a tablespace with name 'quiz_manana' and three datafiles. Each datafile of 30Mb.
+create TABLESPACE quiz_manana
+DATAFILE 'dat001.dat' SIZE 30M
+DATAFILE 'dat002.dat' SIZE 30M
+DATAFILE 'dat003.dat' SIZE 30M
+ONLINE;
+
+--2. Create a profile with idle time of 15 minutes, the name of the profile should be 'estudiante_quiz'
+
+CREATE PROFILE estudiante_quiz LIMIT
+PASSWORD_LIFE_TIME              40
+SESSIONS_PER_USER               1
+IDLE_TIME                       15
+FAILED_LOGIN_ATTEMPTS           4;
+
+--3
+
+create user carlos_2   -- crear uusario
+identified by carlos_2
+default tablespace quiz_manana
+quota UNLIMITED on quiz_manana;
+grant connect to carlos_2
+grant create any table to carlos_2;
+
+--4
+create user usuario2   -- crear uusario
+identified by usuario2
+default tablespace quiz_manana
+quota UNLIMITED on quiz_manana;
+
+--PARTE 2
+
+
+
